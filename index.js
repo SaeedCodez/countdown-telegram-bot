@@ -31,8 +31,7 @@ function calculateRemainingTime() {
 
 // Command to start the bot
 bot.start((ctx) => {
-    const remainingTime = calculateRemainingTime();
-    ctx.reply(`🥕 سلام به فرانت چپتری های عزیز\n${messageText}`, Markup.inlineKeyboard([
+    ctx.reply(`🥕 سلام ${ctx.from.first_name} جان!\n${messageText}`, Markup.inlineKeyboard([
         Markup.button.callback('⏳ نمایش زمان باقی‌مانده ⏳', 'showRemainingTime')
     ]));
 });
