@@ -1,12 +1,12 @@
 // Import necessary libraries
 const { Telegraf, Markup } = require('telegraf');
-const moment = require('moment');
+const moment = require('moment-timezone'); // استفاده از moment-timezone بجای moment
 
 // Load environment variables
-require("dotenv").config()
+require("dotenv").config();
 
 // Telegram API token
-const TOKEN = process.env.TELEGRAM_API_TOKEN
+const TOKEN = process.env.TELEGRAM_API_TOKEN;
 
 // Initialize the bot with the API token
 const bot = new Telegraf(TOKEN, {
@@ -14,6 +14,9 @@ const bot = new Telegraf(TOKEN, {
         apiRoot: 'https://public-telegram-bypass.solyfarzane9040.workers.dev/bot'
     }
 });
+
+// Set timezone to Tehran
+moment.tz.setDefault('Asia/Tehran');
 
 // Initial message text and target date
 const messageText = "برای مشاهده زمان باقی مانده تا شروع همایش روی دکمه زیر کلیک کنید.";
